@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# React Redux Capstone: Catalogue of Statistics
+# React Redux Capstone: Catalogue of Statistics for Crypto Assets
 
-> React/Redux Catalogue of Statistics Project to build the front-end of an application to organise a  browsable list of items that  can filtered and access to the details of each item.
+> Build the front-end of an application to organise a  browsable list of Crypto Assets that can filtered and accessed to each asset's details.
 
 ![screenshot](./app_screenshot.jpg)
 
