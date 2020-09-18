@@ -5,10 +5,10 @@ const MainAsset = ({
 }) => (
 
         <li>
-            <i>asset icon</i>
+            <i><img src={asset.image} alt={asset.name}/></i>
             <h1>{asset.id}</h1>
-            <h2>{asset.marketcap}</h2>
-            <h3>{asset.currency}</h3>
+            <h2>{asset.market_cap}</h2>
+            <h3>{asset.symbol}</h3>
         </li>
 );
 
