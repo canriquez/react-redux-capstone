@@ -5,6 +5,7 @@ const crypto = (state = cryptoDefault, action) => {
   switch (action.type) {
     case UPDATE_ASSET_LIST:
       // eslint-disable-next-line
+      console.log(action.assetList);
       return [
         ...action.assetList,
       ];
