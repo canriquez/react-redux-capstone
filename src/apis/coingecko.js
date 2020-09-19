@@ -30,5 +30,7 @@ const fetchApiCryptoList = async ({
     throw ('Something went wrong with fetching book list ', err);
   }
 };
+ 
+
 
 export { fetchApiCryptoList };

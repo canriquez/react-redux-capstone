@@ -30,7 +30,6 @@ state,
                 <ul>
                     {
                         state.crypto.map((asset, id) => {
-                            console.log(asset);
                             return (
                                 id !== 0 ?
                                     <DashAsset

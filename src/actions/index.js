@@ -1,6 +1,7 @@
 import { 
     UPDATE_ASSET_LIST, UPDATE_CRYPTO_ASSET,
     FETCHING_API_ASSETS, FETCHING_API_SUCCESS, FETCHING_API_FAILURE, 
+    NEXT_PAGE, PREV_PAGE,
     } from '../helpers/help'
 
 import { fetchApiCryptoList } from '../apis/coingecko';
@@ -14,6 +15,16 @@ const updateAssetList = assetList => ({
 const updateCryptoAsset = assetData => ({
     type: UPDATE_CRYPTO_ASSET,
     assetData
+});
+
+/* home page - crypto page turner */
+
+const nextPage = ()=>({
+    type: NEXT_PAGE,
+});
+
+const prevPage = ()=>({
+    type: PREV_PAGE,
 });
 
 /* Actions for Async driven Api Store */
@@ -32,6 +43,7 @@ const fetchApiFailure = () => ({
 });
 
 
+
 /* Thunk thenable creators to manage Async requests (Crypto API) */
 
 const updateApiRenderList = (config) => (dispatch,state) => {
@@ -43,6 +55,7 @@ const updateApiRenderList = (config) => (dispatch,state) => {
 
 export { 
     updateAssetList, updateCryptoAsset, 
+    nextPage, prevPage,
     fetchApiAssets, fetchApiSuccess, fetchApiFailure,
-    updateApiRenderList
+    updateApiRenderList,
     }

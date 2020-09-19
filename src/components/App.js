@@ -11,7 +11,7 @@ const initialConf = {
     url:null,  
     currency:'usd',
     filter:'market_cap_desc',
-    results:'5',
+    results:'200',
     page:'1'
 }
 
