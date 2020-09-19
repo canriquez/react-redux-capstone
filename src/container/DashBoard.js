@@ -13,7 +13,10 @@ const mapStateToProps = state => ({
 
 const renderDashBoard = ({
 state,
-}) =>(
+}) =>{
+
+    console.log(state.mainFilter);
+    return (
         <>
             <div>
                 <MainFilter />
@@ -44,6 +47,7 @@ state,
             </div>
         </>
     );
+};
 
 const DashBoard = connect(
   mapStateToProps,

@@ -2,18 +2,27 @@ import React from 'react';
 
 const MainFilter = () => {
   const categories = [
-    'Market Cap',
-    'All Time High',
-    'Volume',
+    {
+      key:'Market Cap',
+      api:'market_cap'
+    },
+    {
+      key:'All Time High',
+      api:'ath'
+    },
+    {
+      key:'Price Change 24hs',
+      api:'price_change_24h'
+    },
   ];
 
   return (
 
-    <div>
+    <div className='main-filter'>
       <select className="categories">
         {
           categories.map((cat, id) => (
-            <option key={`opt_${id * 2}`} value={id}>{cat}</option>
+            <option key={`opt_${id * 2}`} value={cat.api}>{cat.key}</option>
           ))
         }
       </select>

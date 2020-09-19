@@ -10,7 +10,7 @@ const CurrencyFilter = () => {
 
   return (
 
-    <div>
+    <div className='currency-filter'>
       <select className="categories">
         {
           categories.map((cat, id) => (

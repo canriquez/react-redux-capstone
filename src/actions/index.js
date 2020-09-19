@@ -2,6 +2,7 @@ import {
     UPDATE_ASSET_LIST, UPDATE_CRYPTO_ASSET,
     FETCHING_API_ASSETS, FETCHING_API_SUCCESS, FETCHING_API_FAILURE, 
     NEXT_PAGE, PREV_PAGE,
+    FILTER_UPDATE
     } from '../helpers/help'
 
 import { fetchApiCryptoList } from '../apis/coingecko';
@@ -25,6 +26,13 @@ const nextPage = ()=>({
 
 const prevPage = ()=>({
     type: PREV_PAGE,
+});
+
+/*  home page - Filter update */
+
+const filterUpdate = (filter)=>({
+    type: FILTER_UPDATE,
+    filter: filter
 });
 
 /* Actions for Async driven Api Store */
@@ -58,4 +66,5 @@ export {
     nextPage, prevPage,
     fetchApiAssets, fetchApiSuccess, fetchApiFailure,
     updateApiRenderList,
+    filterUpdate
     }
