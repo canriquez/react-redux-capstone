@@ -1,12 +1,13 @@
 import 'regenerator-runtime';
 
 const fetchApiCryptoList = async (
+    url,  
     currency,
     filter,
     results,
     page
     ) => {
-  const baseUrl = 'https://api.coingecko.com/api/v3/coins/markets?';
+  const baseUrl = url || 'https://api.coingecko.com/api/v3/coins/markets?';
   const a =  'vs_currency='+currency;
   const b =  '&order='+filter;
   const c = '&per_page='+results;
@@ -26,7 +27,7 @@ const fetchApiCryptoList = async (
     // return complete list
     return obj;
   } catch (err) {
-    throw ('Something went wrong with fetching book list ', err);
+    rejects('Something went wrong with fetching book list ');
   }
 };
 
