@@ -2,7 +2,8 @@ import {
     UPDATE_ASSET_LIST, UPDATE_CRYPTO_ASSET,
     FETCHING_API_ASSETS, FETCHING_API_SUCCESS, FETCHING_API_FAILURE,
     NEXT_PAGE, PREV_PAGE,
-    FILTER_UPDATE
+    FILTER_UPDATE,
+    CURRENCY_UPDATE
 } from '../helpers/help'
 
 import { fetchApiCryptoList } from '../apis/coingecko';
@@ -37,6 +38,17 @@ const filterUpdate = (filter) => {
         filter: filter
     });
 };
+
+/* Home page - currency update */
+
+const currencyUpdate = (filter) => {
+    console.log('in action creator ... currency is now :' + filter);
+    return ({
+        type: CURRENCY_UPDATE,
+        filter: filter
+    })
+}
+
 /* Actions for Async driven Api Store */
 
 
@@ -68,5 +80,6 @@ export {
     nextPage, prevPage,
     fetchApiAssets, fetchApiSuccess, fetchApiFailure,
     updateApiRenderList,
-    filterUpdate
+    filterUpdate,
+    currencyUpdate,
 }
