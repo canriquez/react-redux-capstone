@@ -1,7 +1,7 @@
 import {
     UPDATE_ASSET_LIST, UPDATE_CRYPTO_ASSET,
     FETCHING_API_ASSETS, FETCHING_API_SUCCESS, FETCHING_API_FAILURE,
-    NEXT_PAGE, PREV_PAGE,
+    NEXT_PAGE, PREV_PAGE, UPDATE_PAGE,
     FILTER_UPDATE,
     CURRENCY_UPDATE,
     GET_CURRENT_CURRENCY
@@ -29,6 +29,13 @@ const nextPage = () => ({
 const prevPage = () => ({
     type: PREV_PAGE,
 });
+
+const updatePage = (newPage) => (
+    {
+        type: UPDATE_PAGE,
+        page: newPage
+    }
+)
 
 /*  home page - Filter update */
 
@@ -78,11 +85,6 @@ const fetchApiFailure = () => ({
 
 /* Thunk thenable creators to manage Async requests (Crypto API) */
 
-/* const updateApiRenderList = (config) => (dispatch, state) => {
-    fetchApiCryptoList(config).then(result => {
-        dispatch(updateAssetList(result));
-    });
-}; */
 
 const updateApiRenderList = config => (dispatch, getState) => fetchApiCryptoList(
     {
@@ -98,7 +100,7 @@ const updateApiRenderList = config => (dispatch, getState) => fetchApiCryptoList
 
 export {
     updateAssetList, updateCryptoAsset,
-    nextPage, prevPage,
+    nextPage, prevPage, updatePage,
     fetchApiAssets, fetchApiSuccess, fetchApiFailure,
     updateApiRenderList,
     filterUpdate,

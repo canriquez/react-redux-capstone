@@ -51,11 +51,13 @@ const RenderDashBoard = ({
 
     const handleKeySearch = (inputValue) => {
         if (input.length < 2) { return [] }
+        // first we add idpos to the original asset object as a new property
+        // then we filter based on partial user input
+        // to finally select the name and calculate the page number
+        // where the crypto asset is located. We limit the result size to 4 max
         keysearch = state.crypto.map((obj, idpos) => ({ ...obj, idpos })).filter((asset) =>
-            /* asset.name.toLowerCase().startsWith(inputValue.toLowerCase()) */
-            /* new RegExp('^' + inputValue, 'i').test(asset.name) */
             (asset.name.substr(0, inputValue.length).toUpperCase() == inputValue.toUpperCase())
-        ).map(obj => ({ name: obj.name, idpos: obj.idpos }));
+        ).map(obj => ({ name: obj.name, idpage: (Math.trunc(obj.idpos / 5) + 1) }));
         //limits to maximum 4 results
         return keysearch.slice(0, (keysearch.length >= 5 ? 4 : keysearch.length));
     }
@@ -66,9 +68,16 @@ const RenderDashBoard = ({
 
     const handleInputSearch = (event) => {
         setInput(event.target.value)
-        setKs(handleKeySearch(event.target.value));
+        const hits = handleKeySearch(event.target.value)
+        setKs(hits); //update store
         console.log(event.target.value);
         console.log(keysearch)
+        if (hits.length > 0) {
+            //calls method to change page store where the hit is located.
+            console.log('ready to change to page : ' + hits[0].idpage)
+        } else {
+            console.log('back to page 0');
+        }
     }
 
     const sortedAssetList = sortAssetsList(state.crypto, state.page, state.mainFilter)
@@ -80,9 +89,9 @@ const RenderDashBoard = ({
                     <input type="text" value={input} list="keysearch" onChange={handleInputSearch} />
                     <datalist id="keysearch">
                         {
-                            ks.map((hint) => {
+                            ks.map((hint, id) => {
                                 return (
-                                    <option key={hint.idpos}>{hint.name}</option>
+                                    <option key={'hint-' + id}>{hint.name}</option>
                                 )
                             })
                         }

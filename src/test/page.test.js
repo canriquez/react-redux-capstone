@@ -1,7 +1,7 @@
 import deepFreeze from 'deep-freeze';
 import page from '../reducers/page';
 import { NEXT_PAGE, PREV_PAGE } from '../helpers/help'
-import { nextPage, prevPage } from '../actions/index'
+import { nextPage, prevPage, updatePage } from '../actions/index'
 
 it('increases page number, happy path', () => {
   const stateBefore = 0;
@@ -56,5 +56,19 @@ it('test not going below one, ', () => {
 
   expect(
     page(stateBefore, prevPage()),
+  ).toEqual(stateAfter);
+});
+
+it.only('changes to a specific page number, ', () => {
+  const stateBefore = 20;
+  const newPage = 10;
+  const stateAfter = 10;
+
+  /* inmmutability check */
+  deepFreeze(stateBefore); // makes sure reducer is pure function
+  deepFreeze(nextPage); // makes sure reducer is pure function
+
+  expect(
+    page(stateBefore, updatePage(newPage)),
   ).toEqual(stateAfter);
 });
