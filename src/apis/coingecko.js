@@ -12,7 +12,7 @@ const fetchApiCryptoList = async ({
   const a = 'vs_currency=' + currency;
   const b = '&order=market_cap_desc';
   const c = '&per_page=200'
-  const d = '&page=' + page + '&sparkline=false';
+  const d = '&page=1&sparkline=false';
   const appURL = [baseUrl + a + b + c + d];
   const request = {
     method: 'GET',

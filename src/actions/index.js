@@ -88,7 +88,6 @@ const updateApiRenderList = config => (dispatch, getState) => fetchApiCryptoList
     {
         url: null,
         currency: getState().currencyFilter,
-        page: getState().page
     })
     .then((result) => {
         dispatch(updateAssetList(result));
