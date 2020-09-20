@@ -1,20 +1,22 @@
 import React from 'react';
 import DashBoard from '../container/DashBoard'
 import { connect } from 'react-redux';
-import { updateApiRenderList } from '../actions/index';
+import { updateApiRenderList, getCurrenCurrency } from '../actions/index';
 
 class App extends React.Component {
     constructor(props) {
         super(props)
 
-        const { state, renderApiAssetsLists } = props
-        this.reduxState = state
-        this.renderApiAssetsLists = renderApiAssetsLists
-        //binding render method so is accesible by class methods
-        this.renderApiAssetsLists = this.renderApiAssetsLists.bind(this);
+        const { nowCurrency, renderApiAssetsLists, getReduxCurrency } = props
+        this.nowCurrency = nowCurrency
 
-        console.log('at App. this.reduxState is : ')
-        console.log(this.reduxState);
+        this.renderApiAssetsLists = renderApiAssetsLists
+        this.getReduxCurrency = getReduxCurrency
+        //binding dispatchToProps method so is accesible by class methods
+        this.renderApiAssetsLists = this.renderApiAssetsLists.bind(this);
+        this.getReduxCurrency = this.getReduxCurrency.bind(this)
+
+        console.log('at App. this.nowCurrency is : ' + this.nowCurrency)
 
     }
 
@@ -25,15 +27,10 @@ class App extends React.Component {
 
     componentDidMount() {
 
-        const initialConf = {
-            url: null,
-            currency: this.reduxState.currencyFilter,
-            page: '1'
-        }
-        this.renderApiAssetsLists(initialConf);
+        this.renderApiAssetsLists();
         console.log('App just mounted, and got a fresh list of assets')
         //Fix normal update every 5 minutes
-        this.assetsListUpdateInterval = setInterval(this.fetchApi.bind(this), 300000);
+        this.assetsListUpdateInterval = setInterval(this.fetchApi.bind(this), 500000);
     }
 
     componentWillUnmount() {
@@ -45,13 +42,8 @@ class App extends React.Component {
     }
 
     fetchApi() {
-        console.log('Updating with currency : ' + this.reduxState.currencyFilter);
-        const initialConf = {
-            url: null,
-            currency: this.reduxState.currencyFilter,
-            page: '1'
-        }
-        this.renderApiAssetsLists(initialConf);
+        console.log('running automatic update from App component...');
+        this.renderApiAssetsLists();
     }
 
 
@@ -70,12 +62,16 @@ class App extends React.Component {
 
 }
 
-const mapStateToProps = state => ({
-    state,
-});
-
+const mapStateToProps = state => {
+    console.log('------- HERE STATE in APP ----');
+    console.log(state)
+    return ({
+        nowCurrency: state.currencyFilter
+    });
+};
 const mapDispatchToProps = dispatch => ({
-    renderApiAssetsLists: (conf) => dispatch(updateApiRenderList(conf)),
+    renderApiAssetsLists: () => dispatch(updateApiRenderList()),
+    getReduxCurrency: () => dispatch(getCurrenCurrency())
 });
 
 

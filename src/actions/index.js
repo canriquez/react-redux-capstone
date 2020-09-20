@@ -78,11 +78,23 @@ const fetchApiFailure = () => ({
 
 /* Thunk thenable creators to manage Async requests (Crypto API) */
 
-const updateApiRenderList = (config) => (dispatch, state) => {
+/* const updateApiRenderList = (config) => (dispatch, state) => {
     fetchApiCryptoList(config).then(result => {
         dispatch(updateAssetList(result));
     });
-};
+}; */
+
+const updateApiRenderList = config => (dispatch, getState) => fetchApiCryptoList(
+    {
+        url: null,
+        currency: getState().currencyFilter,
+        page: getState().page
+    })
+    .then((result) => {
+        dispatch(updateAssetList(result));
+    }).catch(error => {
+        throw (error);
+    });
 
 
 export {

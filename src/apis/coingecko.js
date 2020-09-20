@@ -7,6 +7,7 @@ const fetchApiCryptoList = async ({
   results,
   page
 }) => {
+  console.log('From API, currency in call is : ' + currency)
   const baseUrl = url || 'https://api.coingecko.com/api/v3/coins/markets?';
   const a = 'vs_currency=' + currency;
   const b = '&order=market_cap_desc';

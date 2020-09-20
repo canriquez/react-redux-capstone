@@ -17,8 +17,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
     changeMainFilter: (filter) => dispatch(filterUpdate(filter)),
-    changeCurrencyFilter: (filter) => dispatch(currencyUpdate(filter)),
-    updateApiAssetsLists: (conf) => dispatch(updateApiRenderList(conf)),
+    changeCurrencyFilter: (filter) => {
+        dispatch(currencyUpdate(filter));
+        dispatch(updateApiRenderList());
+    },
 })
 
 const sortAssetsList = (object, property) => {
@@ -30,7 +32,6 @@ const sortAssetsList = (object, property) => {
 const renderDashBoard = ({
     state,
     changeMainFilter,
-    updateApiAssetsLists,
     changeCurrencyFilter
 }) => {
 
@@ -44,15 +45,16 @@ const renderDashBoard = ({
                 />
                 <CurrencyFilter
                     state={state}
-                    updateApiAssetsLists={updateApiAssetsLists}
                     changeCurrencyFilter={changeCurrencyFilter}
                 />
 
-                {
-                    <MainAsset
-                        asset={sortedAssetList[0]}
-                    />
-                }
+                <div>
+                    <p>Currency: {state.currencyFilter}</p>
+                </div>
+                <MainAsset
+                    asset={sortedAssetList[0]}
+                />
+
                 <div>
                     <p>|--- Top Down Market Cap Assets ---|</p>
                 </div>
