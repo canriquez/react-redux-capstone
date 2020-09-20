@@ -5,20 +5,29 @@ const CurrencyFilter = ({
   updateApiAssetsLists
 }) => {
   const categories = [
-    'USD',
-    'EUR',
-    'ARS',
-    'YEN',
+    {
+      key: 'US Dollars',
+      api: 'usd'
+    },
+    {
+      key: 'Euros',
+      api: 'eur'
+    },
+    {
+      key: 'Argentinean Peso',
+      api: 'ars'
+    },
   ];
 
   const handleChange = (e) => {
     const conf = {
       url: null,
       currency: e.target.value,
-      filter: state.mainFilter,
-      results: '200',
       page: '1'
     }
+    //this will promote the call to Dashboard and 
+    // dispatch the assetlist API update
+    updateApiAssetsLists(conf);
   }
 
   return (
@@ -27,7 +36,7 @@ const CurrencyFilter = ({
       <select className="categories" onChange={handleChange}>
         {
           categories.map((cat, id) => (
-            <option key={`opt_${id * 2}`} value={id}>{cat}</option>
+            <option key={`opt_${id * 2}`} value={cat.api}>{cat.key}</option>
           ))
         }
       </select>
