@@ -6,7 +6,7 @@ import { nextPage, prevPage } from '../actions/index'
 it('increases page number, happy path', () => {
   const stateBefore = 0;
 
-  const stateAfter =  1;
+  const stateAfter = 1;
 
   /* inmmutability check */
   deepFreeze(stateBefore); // makes sure reducer is pure function
@@ -20,7 +20,7 @@ it('increases page number, happy path', () => {
 it('test not going above 40, ', () => {
   const stateBefore = 40;
 
-  const stateAfter =  40;
+  const stateAfter = 40;
 
   /* inmmutability check */
   deepFreeze(stateBefore); // makes sure reducer is pure function
@@ -32,9 +32,9 @@ it('test not going above 40, ', () => {
 });
 
 it('go to prev page happy path', () => {
-  const stateBefore = 1;
+  const stateBefore = 2;
 
-  const stateAfter =  0;
+  const stateAfter = 1;
 
   /* inmmutability check */
   deepFreeze(stateBefore); // makes sure reducer is pure function
@@ -45,10 +45,10 @@ it('go to prev page happy path', () => {
   ).toEqual(stateAfter);
 });
 
-it('test not going below cero, ', () => {
-  const stateBefore = 0;
+it('test not going below one, ', () => {
+  const stateBefore = 1;
 
-  const stateAfter =  0;
+  const stateAfter = 1;
 
   /* inmmutability check */
   deepFreeze(stateBefore); // makes sure reducer is pure function

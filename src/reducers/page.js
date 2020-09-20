@@ -10,8 +10,8 @@ const page = (state = 1, action) => {
 
     case PREV_PAGE:
       // eslint-disable-next-line
-      if (state === 0) { return 0 }
-      if (state > 0) { return state - 1 }
+      if (state === 1) { return 1 }
+      if (state > 1) { return state - 1 }
       break
 
     default:
