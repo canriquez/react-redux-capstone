@@ -1,9 +1,9 @@
-import { 
+import {
     UPDATE_ASSET_LIST, UPDATE_CRYPTO_ASSET,
-    FETCHING_API_ASSETS, FETCHING_API_SUCCESS, FETCHING_API_FAILURE, 
+    FETCHING_API_ASSETS, FETCHING_API_SUCCESS, FETCHING_API_FAILURE,
     NEXT_PAGE, PREV_PAGE,
     FILTER_UPDATE
-    } from '../helpers/help'
+} from '../helpers/help'
 
 import { fetchApiCryptoList } from '../apis/coingecko';
 
@@ -20,21 +20,23 @@ const updateCryptoAsset = assetData => ({
 
 /* home page - crypto page turner */
 
-const nextPage = ()=>({
+const nextPage = () => ({
     type: NEXT_PAGE,
 });
 
-const prevPage = ()=>({
+const prevPage = () => ({
     type: PREV_PAGE,
 });
 
 /*  home page - Filter update */
 
-const filterUpdate = (filter)=>({
-    type: FILTER_UPDATE,
-    filter: filter
-});
-
+const filterUpdate = (filter) => {
+    console.log('in action creator... filter is now :' + filter)
+    return ({
+        type: FILTER_UPDATE,
+        filter: filter
+    });
+};
 /* Actions for Async driven Api Store */
 
 
@@ -54,17 +56,17 @@ const fetchApiFailure = () => ({
 
 /* Thunk thenable creators to manage Async requests (Crypto API) */
 
-const updateApiRenderList = (config) => (dispatch,state) => {
-  fetchApiCryptoList(config).then(result => {
-    dispatch(updateAssetList(result));
-  });
+const updateApiRenderList = (config) => (dispatch, state) => {
+    fetchApiCryptoList(config).then(result => {
+        dispatch(updateAssetList(result));
+    });
 };
 
 
-export { 
-    updateAssetList, updateCryptoAsset, 
+export {
+    updateAssetList, updateCryptoAsset,
     nextPage, prevPage,
     fetchApiAssets, fetchApiSuccess, fetchApiFailure,
     updateApiRenderList,
     filterUpdate
-    }
+}

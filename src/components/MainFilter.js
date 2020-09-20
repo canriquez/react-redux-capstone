@@ -1,25 +1,32 @@
 import React from 'react';
 
-const MainFilter = () => {
+const MainFilter = ({
+  changeMainFilter
+}) => {
   const categories = [
     {
-      key:'Market Cap',
-      api:'market_cap'
+      key: 'Market Cap',
+      api: 'market_cap'
     },
     {
-      key:'All Time High',
-      api:'ath'
+      key: 'Circulating Supply',
+      api: 'circulating_supply'
     },
     {
-      key:'Price Change 24hs',
-      api:'price_change_24h'
+      key: '24h change vs ATH%',
+      api: 'ath_change_percentage'
     },
   ];
+
+  const handleChange = e => {
+    console.log('filter selector is : ' + e.target.value)
+    changeMainFilter(e.target.value)
+  }
 
   return (
 
     <div className='main-filter'>
-      <select className="categories">
+      <select className="categories" onChange={handleChange}>
         {
           categories.map((cat, id) => (
             <option key={`opt_${id * 2}`} value={cat.api}>{cat.key}</option>

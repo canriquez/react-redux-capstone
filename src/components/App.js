@@ -4,56 +4,79 @@ import { connect } from 'react-redux';
 import { updateApiRenderList } from '../actions/index';
 
 class App extends React.Component {
-    constructor (props){
+    constructor(props) {
         super(props)
-        
+
         const { state, renderApiAssetsLists } = props
-        this.state = state
+        this.reduxState = state
         this.renderApiAssetsLists = renderApiAssetsLists
+        //binding render method so is accesible by class methods
         this.renderApiAssetsLists = this.renderApiAssetsLists.bind(this);
 
-    
     }
 
-//Initial conf will be the initial state of a store reducer where we will update the 
-// selected filters
-// API will be only called if currency has changed
+    //Initial conf will be the initial state of a store reducer where we will update the 
+    // selected filters
+    // API will be only called if currency has changed
+    assetsListUpdateInterval;
 
     componentDidMount() {
 
         const initialConf = {
-            url:null,  
-            currency:'usd',
-            filter:this.state.mainFilter,
-            results:'200',
-            page:'1'
+            url: null,
+            currency: 'usd',
+            filter: this.reduxState.mainFilter,
+            results: '200',
+            page: '1'
+        }
+        this.renderApiAssetsLists(initialConf);
+        console.log('App just mounted, and got a fresh list of assets')
+        //Fix normal update every 5 minutes
+        this.assetsListUpdateInterval = setInterval(this.fetchApi.bind(this), 300000);
+    }
+
+    componentWillUnmount() {
+        /*
+          stop fetchAi() from keep updating list when changing pages
+          on Unmount
+        */
+        clearInterval(this.assetsListUpdateInterval);
+    }
+
+    fetchApi() {
+        console.log('Updating');
+        const initialConf = {
+            url: null,
+            currency: 'usd',
+            filter: this.reduxState.mainFilter,
+            results: '200',
+            page: '1'
         }
         this.renderApiAssetsLists(initialConf);
     }
 
 
+    render() {
 
 
-
-render() {
-    return (
-        <>
-            <div>
-                <h1>Crypto Catalog App</h1>
-            </div>
-            <DashBoard />
-        </>
-    )
-}
+        return (
+            <>
+                <div>
+                    <h1>Crypto Catalog App</h1>
+                </div>
+                <DashBoard />
+            </>
+        )
+    }
 
 }
 
 const mapStateToProps = state => ({
-  state,
+    state,
 });
 
 const mapDispatchToProps = dispatch => ({
-  renderApiAssetsLists: (conf) => dispatch(updateApiRenderList(conf)),
+    renderApiAssetsLists: (conf) => dispatch(updateApiRenderList(conf)),
 });
 
 
