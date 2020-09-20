@@ -3,7 +3,8 @@ import {
     FETCHING_API_ASSETS, FETCHING_API_SUCCESS, FETCHING_API_FAILURE,
     NEXT_PAGE, PREV_PAGE,
     FILTER_UPDATE,
-    CURRENCY_UPDATE
+    CURRENCY_UPDATE,
+    GET_CURRENT_CURRENCY
 } from '../helpers/help'
 
 import { fetchApiCryptoList } from '../apis/coingecko';
@@ -49,6 +50,15 @@ const currencyUpdate = (filter) => {
     })
 }
 
+/* Home Page Get Current Currency */
+
+const getCurrenCurrency = () => {
+    console.log('getting redux store current currency...');
+    return ({
+        type: GET_CURRENT_CURRENCY,
+    })
+}
+
 /* Actions for Async driven Api Store */
 
 
@@ -82,4 +92,5 @@ export {
     updateApiRenderList,
     filterUpdate,
     currencyUpdate,
+    getCurrenCurrency
 }

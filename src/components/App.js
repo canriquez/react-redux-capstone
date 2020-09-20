@@ -13,6 +13,9 @@ class App extends React.Component {
         //binding render method so is accesible by class methods
         this.renderApiAssetsLists = this.renderApiAssetsLists.bind(this);
 
+        console.log('at App. this.reduxState is : ')
+        console.log(this.reduxState);
+
     }
 
     //Initial conf will be the initial state of a store reducer where we will update the 
@@ -24,7 +27,7 @@ class App extends React.Component {
 
         const initialConf = {
             url: null,
-            currency: 'usd',
+            currency: this.reduxState.currencyFilter,
             page: '1'
         }
         this.renderApiAssetsLists(initialConf);
@@ -42,10 +45,10 @@ class App extends React.Component {
     }
 
     fetchApi() {
-        console.log('Updating');
+        console.log('Updating with currency : ' + this.reduxState.currencyFilter);
         const initialConf = {
             url: null,
-            currency: 'usd',
+            currency: this.reduxState.currencyFilter,
             page: '1'
         }
         this.renderApiAssetsLists(initialConf);

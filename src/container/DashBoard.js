@@ -4,8 +4,11 @@ import MainAsset from '../components/MainAsset';
 import MainFilter from '../components/MainFilter';
 import CurrencyFilter from '../components/CurrencyFilter';
 import { connect } from 'react-redux';
-import { filterUpdate } from '../actions/index'
-import { updateApiRenderList } from '../actions/index';
+import {
+    filterUpdate,
+    updateApiRenderList,
+    currencyUpdate
+} from '../actions/index'
 
 
 const mapStateToProps = state => ({
@@ -14,6 +17,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
     changeMainFilter: (filter) => dispatch(filterUpdate(filter)),
+    changeCurrencyFilter: (filter) => dispatch(currencyUpdate(filter)),
     updateApiAssetsLists: (conf) => dispatch(updateApiRenderList(conf)),
 })
 
@@ -27,6 +31,7 @@ const renderDashBoard = ({
     state,
     changeMainFilter,
     updateApiAssetsLists,
+    changeCurrencyFilter
 }) => {
 
     const sortedAssetList = sortAssetsList(state.crypto, state.mainFilter)
@@ -40,6 +45,7 @@ const renderDashBoard = ({
                 <CurrencyFilter
                     state={state}
                     updateApiAssetsLists={updateApiAssetsLists}
+                    changeCurrencyFilter={changeCurrencyFilter}
                 />
 
                 {

@@ -2,7 +2,8 @@ import React from 'react';
 
 const CurrencyFilter = ({
   state,
-  updateApiAssetsLists
+  updateApiAssetsLists,
+  changeCurrencyFilter
 }) => {
   const categories = [
     {
@@ -28,6 +29,9 @@ const CurrencyFilter = ({
     //this will promote the call to Dashboard and 
     // dispatch the assetlist API update
     updateApiAssetsLists(conf);
+    //updates redux store with new filter
+    console.log('conf.currency is : ' + conf.currency)
+    changeCurrencyFilter(conf.currency)
   }
 
   return (
