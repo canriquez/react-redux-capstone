@@ -5,7 +5,7 @@ import MainFilter from '../components/MainFilter';
 import CurrencyFilter from '../components/CurrencyFilter';
 import { connect } from 'react-redux';
 import Paginator from '../components/Paginator'
-import { nextPage, prevPage } from '../actions/index'
+import { nextPage, prevPage, updatePage } from '../actions/index'
 import {
     filterUpdate,
     updateApiRenderList,
@@ -26,7 +26,8 @@ const mapDispatchToProps = (dispatch) => ({
     handlePaginator: (action) => {
         if (action === 'NEXT') { dispatch(nextPage()) }
         if (action === 'PREV') { dispatch(prevPage()) }
-    }
+    },
+    changePage: (newPage) => dispatch(updatePage(newPage))
 })
 
 const sortAssetsList = (object, page, property) => {
@@ -42,7 +43,8 @@ const RenderDashBoard = ({
     state,
     changeMainFilter,
     changeCurrencyFilter,
-    handlePaginator
+    handlePaginator,
+    changePage
 }) => {
 
     let keysearch = [];
@@ -73,10 +75,12 @@ const RenderDashBoard = ({
         console.log(event.target.value);
         console.log(keysearch)
         if (hits.length > 0) {
-            //calls method to change page store where the hit is located.
+            //calls method to change page store where the best hit asset is located.
             console.log('ready to change to page : ' + hits[0].idpage)
+            changePage(hits[0].idpage)
         } else {
             console.log('back to page 0');
+            changePage(1)
         }
     }
 
