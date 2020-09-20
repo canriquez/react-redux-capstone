@@ -1,18 +1,18 @@
 import 'regenerator-runtime';
 
 const fetchApiCryptoList = async ({
-    url,  
-    currency,
-    filter,
-    results,
-    page
-    }) => {
+  url,
+  currency,
+  filter,
+  results,
+  page
+}) => {
   const baseUrl = url || 'https://api.coingecko.com/api/v3/coins/markets?';
-  const a =  'vs_currency='+currency;
-  const b =  '&order='+filter;
-  const c = '&per_page='+results;
-  const d = '&page='+page+'&sparkline=false';
-  const appURL = [baseUrl + a + b + c +d];
+  const a = 'vs_currency=' + currency;
+  const b = '&order=market_cap_desc';
+  const c = '&per_page=200'
+  const d = '&page=' + page + '&sparkline=false';
+  const appURL = [baseUrl + a + b + c + d];
   const request = {
     method: 'GET',
     headers: {
@@ -30,7 +30,7 @@ const fetchApiCryptoList = async ({
     throw ('Something went wrong with fetching book list ', err);
   }
 };
- 
+
 
 
 export { fetchApiCryptoList };

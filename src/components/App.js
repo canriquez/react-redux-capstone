@@ -25,8 +25,6 @@ class App extends React.Component {
         const initialConf = {
             url: null,
             currency: 'usd',
-            filter: this.reduxState.mainFilter,
-            results: '200',
             page: '1'
         }
         this.renderApiAssetsLists(initialConf);
@@ -48,8 +46,6 @@ class App extends React.Component {
         const initialConf = {
             url: null,
             currency: 'usd',
-            filter: this.reduxState.mainFilter,
-            results: '200',
             page: '1'
         }
         this.renderApiAssetsLists(initialConf);
