@@ -1,12 +1,13 @@
 import React from 'react';
 import DataDetail from './DataDetail'
+import { Link } from 'react-router-dom'
 
 
 const AssetDetails = (props) => {
 
     console.log("asset is");
     console.log(props.location.asset)
-    const { asset } = props.location
+    const { asset, currency } = props.location
     const ppthyShow = [
         'market_cap', 'symbol',
         'ath', 'high_24h',
@@ -30,14 +31,15 @@ const AssetDetails = (props) => {
 
         <div className="main-asset">
 
+            <Link to={{
+                pathname: '/'
+            }}>
+                <p>BACK</p>
+            </Link>
 
-            <h2>{asset.market_cap}</h2>
-            <h3>{asset.symbol}</h3>
-
-            <h3>{asset.ath}</h3>
-            <h3>{asset.high_24h}</h3>
-            <h3>{asset.low_24h}</h3>
-            <h3>{asset.total_volume}</h3>
+            <div className="header-details">
+                <p>{currency}</p>
+            </div>
 
             <div className="head-info">
                 <i><img src={asset.image} alt={asset.name} /></i>

@@ -100,6 +100,7 @@ const RenderDashBoard = ({
         </div>
         <Link to={{
           asset: sortedAssetList[0],
+          currency: state.currencyFilter,
           pathname: '/asset'
         }}>
           <MainAsset
