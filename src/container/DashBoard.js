@@ -98,7 +98,7 @@ const RenderDashBoard = ({
             {state.currencyFilter}
           </p>
         </div>
-        <Link to={{
+        <Link key={0} to={{
           asset: sortedAssetList[0],
           currency: state.currencyFilter,
           pathname: '/asset'
@@ -117,10 +117,18 @@ const RenderDashBoard = ({
             sortedAssetList.map((asset, id) => (
               id !== 0
                 ? (
-                  <DashAsset
-                    key={asset.id}
-                    asset={asset}
-                  />
+                  <React.Fragment key={asset.id}>
+                    <Link to={{
+                      asset: asset,
+                      currency: state.currencyFilter,
+                      pathname: '/asset'
+                    }}><p>Go</p>
+                    </Link>
+                    <DashAsset
+                      asset={asset}
+                    />
+                  </React.Fragment>
+
                 )
                 : ''
             ))
