@@ -48,9 +48,9 @@ const AssetDetails = (props) => {
                 <p>|--- Top Down Market Cap Assets ---|</p>
             </div>
             <ul>{
-                showData.map((data) => {
+                showData.map((data, id) => {
                     return (
-                        <DataDetail data={data} />
+                        <DataDetail key={id * 2} data={data} />
                     )
                 })
             }

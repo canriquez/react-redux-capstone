@@ -6,6 +6,8 @@ const DataDetail = ({
     data,
 }) => {
 
+    if (data === null) { console.log('DATA IS NULL') }
+
     let k2, v1;
 
     const keys = Object.keys(data);
@@ -33,8 +35,13 @@ const DataDetail = ({
 
 DataDetail.propTypes = {
     data: PropTypes.shape({
-        key: PropTypes.string.isRequired,
-        value: PropTypes.number.isRequired,
+        'Market Cap': PropTypes.number,
+        'Symbol': PropTypes.string,
+        'ath': PropTypes.number,
+        'ath_date': PropTypes.string,
+        'Low 24h': PropTypes.number,
+        'High 24h': PropTypes.number,
+        'Total Volume': PropTypes.number
     }).isRequired,
 };
 
