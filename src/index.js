@@ -11,17 +11,24 @@ const store = createStore(
   rootReducer,
   applyMiddleware(thunk),
 );
-
+/* 
 class Main extends React.Component {
   componentDidMount() {
     document.title = 'Crypto Catalog App';
   }
 
-  render() {
-    return (
-      <App />
-    );
-  }
+  
+} */
+
+const Main = () => {
+
+  React.useEffect(() => {
+    document.title = 'Crypto Catalog App';
+  })
+
+  return (
+    <App />
+  );
 }
 
 ReactDOM.render(

@@ -6,7 +6,8 @@ import MainAsset from '../components/MainAsset';
 import MainFilter from '../components/MainFilter';
 import CurrencyFilter from '../components/CurrencyFilter';
 import Paginator from '../components/Paginator';
-import getInputHints from '../helpers/componentHelp';
+import { getInputHints } from '../helpers/componentHelp';
+import { Link } from 'react-router-dom'
 
 import {
   nextPage, prevPage, updatePage,
@@ -97,9 +98,15 @@ const RenderDashBoard = ({
             {state.currencyFilter}
           </p>
         </div>
-        <MainAsset
-          asset={sortedAssetList[0]}
-        />
+        <Link key={0} to={{
+          asset: sortedAssetList[0],
+          currency: state.currencyFilter,
+          pathname: '/asset'
+        }}>
+          <MainAsset
+            asset={sortedAssetList[0]}
+          />
+        </Link>
 
         <div>
           <p>|--- Top Down Market Cap Assets ---|</p>
@@ -110,10 +117,18 @@ const RenderDashBoard = ({
             sortedAssetList.map((asset, id) => (
               id !== 0
                 ? (
-                  <DashAsset
-                    key={asset.id}
-                    asset={asset}
-                  />
+                  <React.Fragment key={asset.id}>
+                    <Link to={{
+                      asset: asset,
+                      currency: state.currencyFilter,
+                      pathname: '/asset'
+                    }}><p>Go</p>
+                    </Link>
+                    <DashAsset
+                      asset={asset}
+                    />
+                  </React.Fragment>
+
                 )
                 : ''
             ))

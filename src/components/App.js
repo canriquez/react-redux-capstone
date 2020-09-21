@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import DashBoard from '../container/DashBoard';
 import { updateApiRenderList } from '../actions/index';
+import AssetDetails from '../components/AssetDetails'
 
 class App extends React.Component {
   constructor(props) {
@@ -41,12 +43,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <div>
+      <Router>
+        <div className="app">
           <h1>Crypto Catalog App</h1>
+          <Switch>
+            <Route exact path='/' component={DashBoard} />
+            <Route exact path='/asset' component={AssetDetails} />
+
+          </Switch>
         </div>
-        <DashBoard />
-      </>
+      </Router>
     );
   }
 }
