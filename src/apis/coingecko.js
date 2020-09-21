@@ -3,9 +3,6 @@ import 'regenerator-runtime';
 const fetchApiCryptoList = async ({
   url,
   currency,
-  filter,
-  results,
-  page,
 }) => {
   console.log(`From API, currency in call is : ${currency}`);
   const baseUrl = url || 'https://api.coingecko.com/api/v3/coins/markets?';
@@ -32,4 +29,4 @@ const fetchApiCryptoList = async ({
   }
 };
 
-export { fetchApiCryptoList };
+export default fetchApiCryptoList;

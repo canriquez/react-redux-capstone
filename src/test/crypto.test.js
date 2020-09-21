@@ -1,6 +1,5 @@
 import deepFreeze from 'deep-freeze';
 import crypto from '../reducers/crypto';
-import { UPDATE_ASSET_LIST, UPDATE_CRYPTO_ASSET } from '../helpers/help';
 import { updateAssetList } from '../actions/index';
 
 it('updates crypto asset list', () => {

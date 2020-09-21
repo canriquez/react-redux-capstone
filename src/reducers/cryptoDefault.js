@@ -1,4 +1,4 @@
-export const cryptoDefault = [
+const cryptoDefault = [
   {
     id: 'bitcoin',
     symbol: 'btc',
@@ -88,3 +88,5 @@ export const cryptoDefault = [
     last_updated: '2020-09-18T21:07:24.447Z',
   },
 ];
+
+export default cryptoDefault;

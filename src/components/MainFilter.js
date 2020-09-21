@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 const MainFilter = ({
   changeMainFilter,
@@ -35,6 +36,10 @@ const MainFilter = ({
       </select>
     </div>
   );
+};
+
+MainFilter.propTypes = {
+  changeMainFilter: PropTypes.func.isRequired,
 };
 
 export default MainFilter;

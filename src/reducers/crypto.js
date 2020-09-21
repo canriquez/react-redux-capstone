@@ -1,5 +1,5 @@
 import { UPDATE_ASSET_LIST, UPDATE_CRYPTO_ASSET } from '../helpers/help';
-import { cryptoDefault } from './cryptoDefault';
+import cryptoDefault from './cryptoDefault';
 
 const crypto = (state = cryptoDefault, action) => {
   switch (action.type) {

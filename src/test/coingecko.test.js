@@ -1,4 +1,4 @@
-import { fetchApiCryptoList } from '../apis/coingecko';
+import fetchApiCryptoList from '../apis/coingecko';
 
 const initialConf = {
   url: null,

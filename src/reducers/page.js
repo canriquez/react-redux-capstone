@@ -22,6 +22,7 @@ const page = (state = 1, action) => {
     default:
       return state;
   }
+  return state;
 };
 
 export default page;

@@ -1,7 +1,7 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 const CurrencyFilter = ({
-  state,
   changeCurrencyFilter,
 }) => {
   const categories = [
@@ -35,6 +35,10 @@ const CurrencyFilter = ({
       </select>
     </div>
   );
+};
+
+CurrencyFilter.propTypes = {
+  changeCurrencyFilter: PropTypes.func.isRequired,
 };
 
 export default CurrencyFilter;

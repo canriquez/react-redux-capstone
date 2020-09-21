@@ -1,6 +1,5 @@
 import deepFreeze from 'deep-freeze';
 import mainFilter from '../reducers/mainFilter';
-import { FILTER_UPDATE } from '../helpers/help';
 import { filterUpdate } from '../actions/index';
 
 it('update filter to new filter', () => {

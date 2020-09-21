@@ -7,7 +7,7 @@ import {
   GET_CURRENT_CURRENCY,
 } from '../helpers/help';
 
-import { fetchApiCryptoList } from '../apis/coingecko';
+import fetchApiCryptoList from '../apis/coingecko';
 
 /* Actions for Sync Store */
 const updateAssetList = assetList => ({
@@ -82,7 +82,7 @@ const fetchApiFailure = () => ({
 
 /* Thunk thenable creators to manage Async requests (Crypto API) */
 
-const updateApiRenderList = config => (dispatch, getState) => fetchApiCryptoList(
+const updateApiRenderList = () => (dispatch, getState) => fetchApiCryptoList(
   {
     url: null,
     currency: getState().currencyFilter,
