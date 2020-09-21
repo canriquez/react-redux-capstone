@@ -1,4 +1,5 @@
 import React from 'react';
+import DataDetail from './DataDetail'
 
 
 const AssetDetails = (props) => {
@@ -12,16 +13,18 @@ const AssetDetails = (props) => {
         'low_24h', 'total_volume'
     ]
 
-    const buildDetailsArray = (asset, conf) => {
-        return Object.keys(asset)
-            .filter(key => conf.includes(key))
-            .reduce((obj, key) => {
-                obj[key] = asset[key];
-                return obj;
-            }, {});
-    }
+    const showData = [
+        { 'Market Cap': asset.market_cap },
+        { 'Symbol': asset.symbol },
+        {
+            'ath': asset.ath,
+            'ath_date': asset.ath_date
+        },
+        { 'Low 24h': asset.low_24h },
+        { 'High 24h': asset.high_24h },
+        { 'Total Volume': asset.total_volume }
+    ]
 
-    console.log(buildDetailsArray(asset, ppthyShow))
 
     return (
 
@@ -44,8 +47,13 @@ const AssetDetails = (props) => {
             <div className="asset-divider">
                 <p>|--- Top Down Market Cap Assets ---|</p>
             </div>
-            <ul>
-
+            <ul>{
+                showData.map((data) => {
+                    return (
+                        <DataDetail data={data} />
+                    )
+                })
+            }
             </ul>
 
 

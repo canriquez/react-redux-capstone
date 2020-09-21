@@ -6,7 +6,7 @@ import MainAsset from '../components/MainAsset';
 import MainFilter from '../components/MainFilter';
 import CurrencyFilter from '../components/CurrencyFilter';
 import Paginator from '../components/Paginator';
-import getInputHints from '../helpers/componentHelp';
+import { getInputHints } from '../helpers/componentHelp';
 import { Link } from 'react-router-dom'
 
 import {

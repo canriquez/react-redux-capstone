@@ -13,4 +13,13 @@ const getInputHints = (inputValue, objectList) => {
   // limits to maximum 4 results
   return keysearch.slice(0, (keysearch.length >= 5 ? 4 : keysearch.length));
 };
-export default getInputHints;
+
+const getDate = (date) => {
+  return date.slice(8, 10)
+    + '/'
+    + date.slice(5, 7)
+    + '/'
+    + date.slice(0, 4)
+}
+
+export { getInputHints, getDate };
