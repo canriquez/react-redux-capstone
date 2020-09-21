@@ -5,13 +5,13 @@ const fetchApiCryptoList = async ({
   currency,
   filter,
   results,
-  page
+  page,
 }) => {
-  console.log('From API, currency in call is : ' + currency)
+  console.log(`From API, currency in call is : ${currency}`);
   const baseUrl = url || 'https://api.coingecko.com/api/v3/coins/markets?';
-  const a = 'vs_currency=' + currency;
+  const a = `vs_currency=${currency}`;
   const b = '&order=market_cap_desc';
-  const c = '&per_page=200'
+  const c = '&per_page=200';
   const d = '&page=1&sparkline=false';
   const appURL = [baseUrl + a + b + c + d];
   const request = {
@@ -31,7 +31,5 @@ const fetchApiCryptoList = async ({
     throw ('Something went wrong with fetching book list ', err);
   }
 };
-
-
 
 export { fetchApiCryptoList };

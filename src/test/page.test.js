@@ -1,7 +1,7 @@
 import deepFreeze from 'deep-freeze';
 import page from '../reducers/page';
-import { NEXT_PAGE, PREV_PAGE } from '../helpers/help'
-import { nextPage, prevPage, updatePage } from '../actions/index'
+import { NEXT_PAGE, PREV_PAGE } from '../helpers/help';
+import { nextPage, prevPage, updatePage } from '../actions/index';
 
 it('increases page number, happy path', () => {
   const stateBefore = 0;

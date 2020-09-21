@@ -5,7 +5,7 @@ const mainFilter = (state = 'market_cap_desc', action) => {
     case FILTER_UPDATE:
       // eslint-disable-next-line
       console.log('@mainFilter reducer, filter is : ' + action.filter)
-      return action.filter
+      return action.filter;
 
     default:
       return state;

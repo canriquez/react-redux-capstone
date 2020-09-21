@@ -1,16 +1,16 @@
 import deepFreeze from 'deep-freeze';
 import cryptoApi from '../reducers/cryptoApi';
-import { FETCHING_API_ASSETS, FETCHING_API_SUCCESS, FETCHING_API_FAILURE } from '../helpers/help'
-import { fetchApiAssets, fetchApiSuccess, fetchApiFailure } from '../actions/index'
+import { FETCHING_API_ASSETS, FETCHING_API_SUCCESS, FETCHING_API_FAILURE } from '../helpers/help';
+import { fetchApiAssets, fetchApiSuccess, fetchApiFailure } from '../actions/index';
 
 it('fetch API Asset list update', () => {
   const stateBefore = [];
   const stateAfter = {
-        fetching: true,
-        updated: false,
-        apiError: false,
-        status: FETCHING_API_ASSETS
-      };
+    fetching: true,
+    updated: false,
+    apiError: false,
+    status: FETCHING_API_ASSETS,
+  };
 
   /* inmmutability check */
   deepFreeze(stateBefore); // makes sure reducer is pure function
@@ -24,11 +24,11 @@ it('fetch API Asset list update', () => {
 it('fetch API success call', () => {
   const stateBefore = [];
   const stateAfter = {
-        fetching: false,
-        updated: true,
-        apiError: false,
-        status: FETCHING_API_SUCCESS
-      };
+    fetching: false,
+    updated: true,
+    apiError: false,
+    status: FETCHING_API_SUCCESS,
+  };
 
   /* inmmutability check */
   deepFreeze(stateBefore); // makes sure reducer is pure function
@@ -42,11 +42,11 @@ it('fetch API success call', () => {
 it('fetch API failure call', () => {
   const stateBefore = [];
   const stateAfter = {
-        fetching: false,
-        updated: false,
-        apiError: true,
-        status: FETCHING_API_FAILURE
-      };
+    fetching: false,
+    updated: false,
+    apiError: true,
+    status: FETCHING_API_FAILURE,
+  };
 
   /* inmmutability check */
   deepFreeze(stateBefore); // makes sure reducer is pure function

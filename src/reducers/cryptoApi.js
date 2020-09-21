@@ -16,7 +16,7 @@ const cryptoApi = (state = defaultState, action) => {
         fetching: true,
         updated: false,
         apiError: false,
-        status: action.type
+        status: action.type,
       };
 
     case FETCHING_API_SUCCESS:
@@ -24,14 +24,14 @@ const cryptoApi = (state = defaultState, action) => {
         fetching: false,
         updated: true,
         apiError: false,
-        status: action.type
+        status: action.type,
       };
     case FETCHING_API_FAILURE: // Used to initiate a new book storage into API (POST Action)
       return {
         fetching: false,
         updated: false,
         apiError: true,
-        status: action.type
+        status: action.type,
       };
 
     default:
@@ -40,5 +40,3 @@ const cryptoApi = (state = defaultState, action) => {
 };
 
 export default cryptoApi;
-
-

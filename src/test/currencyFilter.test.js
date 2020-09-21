@@ -1,11 +1,11 @@
 import deepFreeze from 'deep-freeze';
 import currencyFilter from '../reducers/currencyFilter';
-import { currencyUpdate, getCurrenCurrency } from '../actions/index'
+import { currencyUpdate, getCurrenCurrency } from '../actions/index';
 
 it('update currency to new filtered currency', () => {
   const stateBefore = '';
 
-  const filter = 'eur'
+  const filter = 'eur';
   const stateAfter = 'eur';
 
   /* inmmutability check */

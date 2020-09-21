@@ -2,30 +2,30 @@ import React from 'react';
 
 const CurrencyFilter = ({
   state,
-  changeCurrencyFilter
+  changeCurrencyFilter,
 }) => {
   const categories = [
     {
       key: 'US Dollars',
-      api: 'usd'
+      api: 'usd',
     },
     {
       key: 'Euros',
-      api: 'eur'
+      api: 'eur',
     },
     {
       key: 'Argentinean Peso',
-      api: 'ars'
+      api: 'ars',
     },
   ];
 
-  const handleChange = (e) => {
-    changeCurrencyFilter(e.target.value)
-  }
+  const handleChange = e => {
+    changeCurrencyFilter(e.target.value);
+  };
 
   return (
 
-    <div className='currency-filter'>
+    <div className="currency-filter">
       <select className="categories" onChange={handleChange}>
         {
           categories.map((cat, id) => (
