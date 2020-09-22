@@ -41,4 +41,13 @@ const textToBigCurrency = (numberText) => {
 
 }
 
-export { getInputHints, getDate, textToBigCurrency };
+const apiToKey = (api, array) => {
+  let result = array.filter(option => {
+    if (option.sort === api) {
+      return true
+    }
+  })
+  if (result.length > 0) { return result[0].key }
+}
+
+export { getInputHints, getDate, textToBigCurrency, apiToKey };

@@ -6,10 +6,11 @@ import MainAsset from '../components/MainAsset';
 import MainFilter from '../components/MainFilter';
 import CurrencyFilter from '../components/CurrencyFilter';
 import Paginator from '../components/Paginator';
-import { getInputHints } from '../helpers/componentHelp';
+import { getInputHints, apiToKey } from '../helpers/componentHelp';
 import { Link, Route } from 'react-router-dom'
 import style from '../styles/DashBoard.module.css'
 import { ReactComponent as SearchIcon } from '../assets/icons/search.svg'
+import mainFilterCat from '../config/appConfig'
 
 
 import {
@@ -105,9 +106,9 @@ const RenderDashBoard = ({
             currency={state.currencyFilter}
           />
         </Link>
-        <div>
-          <p>|--- Top Down Market Cap Assets ---|</p>
-          <Paginator handlePaginator={handlePaginator} />
+        <div className={style.dashGap}>
+          <p>stats by {apiToKey(state.mainFilter, mainFilterCat)}</p>
+          <Paginator page={state.page} handlePaginator={handlePaginator} />
         </div>
         <ul>
           {

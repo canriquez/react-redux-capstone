@@ -23,3 +23,28 @@
 .routerLink {
     text-decoration: none;
 }
+
+/*  Dash gap styling */
+
+.dashGap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 24px;
+    background-color: var(--denim-blue);
+}
+
+.dashGap p {
+    margin-left: 4px;
+    font-family: Lato, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: -0.48px;
+    text-align: left;
+    color: var(--white);
+    text-transform: uppercase;
+}

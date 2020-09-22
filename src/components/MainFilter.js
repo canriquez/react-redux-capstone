@@ -1,24 +1,11 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import style from '../styles/MainFilter.module.css'
+import mainFilterCat from '../config/appConfig'
 
 const MainFilter = ({
   changeMainFilter,
 }) => {
-  const categories = [
-    {
-      key: 'Market Cap',
-      api: 'market_cap',
-    },
-    {
-      key: 'Circulating Supply',
-      api: 'circulating_supply',
-    },
-    {
-      key: '24h change vs ATH%',
-      api: 'ath_change_percentage',
-    },
-  ];
 
   const handleChange = e => {
     console.log(`filter selector is : ${e.target.value}`);
@@ -30,7 +17,7 @@ const MainFilter = ({
     <div className={style.mainFilter}>
       <select className="categories" onChange={handleChange}>
         {
-          categories.map((cat, id) => (
+          mainFilterCat.map((cat, id) => (
             <option key={`opt_${id * 2}`} value={cat.api}>{cat.key}</option>
           ))
         }
