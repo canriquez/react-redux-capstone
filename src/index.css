@@ -5,3 +5,12 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
+
+:root {
+  --soft-blue: #5789e5;
+  --white: #fff;
+  --dark-slate-blue: #2c4573;
+  --french-blue: #4369b2;
+  --denim-blue: #35548c;
+  --black: #000;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DataDetail from '../components/DataDetail'
 import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
 
 const AssetDetailsSafe = ({
@@ -9,6 +10,7 @@ const AssetDetailsSafe = ({
     currentCryptoList,
     currencyFilter
 }) => {
+
 
     const asset = currentCryptoList.find(asset => asset.id == match.match.params.id);
     let assetRender;
@@ -55,7 +57,9 @@ const AssetDetailsSafe = ({
             </React.Fragment>
         );
     }
-    else assetRender = <h2> ....loading </h2>;
+    else {
+        assetRender = <Redirect to='/' />;
+    }
 
     return (
         <div className="asset-details-box">

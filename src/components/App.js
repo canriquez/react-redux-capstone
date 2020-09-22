@@ -6,15 +6,15 @@ import DashBoard from '../container/DashBoard';
 import { updateApiRenderList } from '../actions/index';
 import AssetDetails from '../components/AssetDetails'
 import AssetDetailsSafe from '../container/AssetDetailsSafe'
+import styles from '../styles/App.module.css'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    const { renderApiAssetsLists, currentCryptoList, match, currencyFilter } = props;
+    const { renderApiAssetsLists, currentCryptoList, currencyFilter } = props;
 
     this.currencyFilter = currencyFilter;
-    this.match = match;
     this.currentCryptoList = currentCryptoList;
     this.renderApiAssetsLists = renderApiAssetsLists;
     // binding dispatchToProps method so is accesible by class methods
@@ -51,7 +51,7 @@ class App extends React.Component {
     console.log(this.match);
     return (
       <Router>
-        <div className="app">
+        <div className={styles.appcontainer}>
           <h1>Crypto Catalog App</h1>
           <Switch>
             <Route exact path='/' component={DashBoard} />
@@ -61,8 +61,8 @@ class App extends React.Component {
               render={(props) => <AssetDetailsSafe currency={this.currencyFilter} data={this.currentCryptoList} {...props} />}
             />
             <Route
-              path={'/assets'}
-              render={(props) => <Redirect to={{ pathname: '/', state: { from: props.location } }} />}
+              path={'/*'}
+              render={(props) => <Redirect to='/' />}
             />
 
 
@@ -83,7 +83,6 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = (state, match) => ({
   currentCryptoList: state.crypto,
   currencyFilter: state.currencyFilter,
-  match
 });
 
 

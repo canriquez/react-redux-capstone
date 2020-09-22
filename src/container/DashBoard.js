@@ -123,11 +123,17 @@ const RenderDashBoard = ({
               id !== 0
                 ? (
                   <React.Fragment key={asset.id}>
-                    <Link to={{
+                    {/*                     <Link to={{
                       asset: asset,
                       currency: state.currencyFilter,
                       pathname: '/asset'
                     }}><p>Go</p>
+                    </Link> */}
+
+                    <Link
+                      to={`/asset/${asset.id}`}
+                    ><p>Go</p>
+
                     </Link>
                     <DashAsset
                       asset={asset}
