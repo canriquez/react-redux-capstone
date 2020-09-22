@@ -1,16 +1,17 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # React Redux Capstone: Catalogue of Statistics for Crypto Assets
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ec940d0f-6fb9-4873-9b04-5f8361c7ac0f/deploy-status)](https://app.netlify.com/sites/anriquez-crypto-assets/deploys)
 
 > Build the front-end of an application to organise a  browsable list of Crypto Assets that can filtered and accessed to each asset's details.
 
-![screenshot](./app_screenshot.jpg)
+![screenshot](./app_screenshot.gif)
 
-Additional description about the project and its features.
+User will be able to browse through a list of Crypto Assets, Filtered by Market Cap, ATH, total volume in higher to lower ordwer. Also, user can filter by crypto currency name.
 
 ## Built With
 
-- React.js, Webpack, Babel
+- React.js, Redux, Webpack, Babel
 - HTML5/CSS3, Javascript ES6
 - ESlint, Stylelint
 - VSCode
@@ -18,7 +19,29 @@ Additional description about the project and its features.
 
 ## Live Demo @Heroku
 
-[Live Demo Link]()
+[Live Demo Link](https://anriquez-crypto-assets.netlify.app/)
+
+## User Story:
+
+### User will access the url
+	- Single page renders with main Crypto currencies ordered by market cap by default.
+	- In the top center of the page navbar, the user will be able to select the filter options:
+		○ Market Cap
+		○ ATH
+		○ Total Volume
+	- Once the Filter is selected, the page would render the top 5 crypto currencies with the main statistics showing in the main boxes, ordered from higher to lower statistical value.
+	- In the top left of the page navbar, the user will be able to select the currency displayed for the currencies.
+	- The Filtered options will be updated every minute.
+
+### User can click/tab on any Crypto currency
+	- On Asset selected (click/tab) a new page will show displaying 
+		a. Market Cap
+		b. Last Price
+		c. Volume
+		d. ATH
+		e. High 24hs
+		f. Low 24hs
+
 
 
 ## Getting Started
@@ -53,15 +76,13 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Usage
 
 ### Run tests
 
-### Deployment
-
-
-
-## Authors
+*   Run the test suite app for store actions with
+    ```
+    $ npm test
+    ```
 
 
 ## Authors
