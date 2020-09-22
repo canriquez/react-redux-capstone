@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom';
 import style from '../styles/AssetDetailsSafe.module.css'
 import { textToBigCurrency } from '../helpers/componentHelp'
+import { ReactComponent as GoBack } from '../assets/icons/pagePrev.svg'
 
 
 const AssetDetailsSafe = ({
@@ -33,7 +34,7 @@ const AssetDetailsSafe = ({
                 <Link to={{
                     pathname: '/'
                 }}>
-                    <p>BACK</p>
+                    <GoBack className={style.goBack} />
                 </Link>
                 <div className={style.mainAsset}>
                     <div className={style.leftBox + ' flexCenter'}>
@@ -53,7 +54,7 @@ const AssetDetailsSafe = ({
                 <ul>{
                     showData.map((data, id) => {
                         return (
-                            <DataDetail key={id * 2} data={data} />
+                            <DataDetail idRow={id} key={id * 2} data={data} />
                         )
                     })
                 }

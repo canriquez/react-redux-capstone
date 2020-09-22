@@ -79,3 +79,12 @@
     color: var(--white);
     text-transform: uppercase;
 }
+
+.goBack {
+    position: absolute;
+    top: 110%;
+    left: 2%;
+    width: 25px;
+    height: 25px;
+    fill: #fff;
+}

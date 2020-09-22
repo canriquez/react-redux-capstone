@@ -1,9 +1,12 @@
 import React from 'react';
-import { getDate } from '../helpers/componentHelp'
+import { getDate, isEven, textToBigCurrency } from '../helpers/componentHelp'
 import { PropTypes } from 'prop-types';
+import style from '../styles/DataDetail.module.css'
+
 
 const DataDetail = ({
     data,
+    idRow
 }) => {
 
     if (data === null) { console.log('DATA IS NULL') }
@@ -21,13 +24,17 @@ const DataDetail = ({
 
 
     return (
-        <div className="data-detail">
-            <div className="main-keys">
+        <div className={style.dataDetailRow
+            + (isEven(idRow) ? ' ' + style.evenBox : ' ' + style.oddBox)}>
+            <div className={style.detailKeys}>
                 <p>{keys[0]}</p>
                 {keys[1] === null ? '' : <p>{k2}</p>}
             </div>
-            <div className="main-value">
-                <p>{v1}</p>
+            <div className={style.detailValue}>
+                {keys[0] === 'Market Cap' ?
+                    <p>{textToBigCurrency(v1)}</p> :
+                    <p>{v1}</p>
+                }
             </div>
         </div>
     );
