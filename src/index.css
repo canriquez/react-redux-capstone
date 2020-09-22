@@ -21,6 +21,11 @@
 
 /* Generic classes */
 
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .hide {
   display: none;
 }

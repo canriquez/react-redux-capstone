@@ -3,6 +3,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .dataDetailRow p {

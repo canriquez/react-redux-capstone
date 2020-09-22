@@ -74,11 +74,22 @@ const RenderDashBoard = ({
   };
 
   const sortedAssetList = sortAssetsList(state.crypto, state.page, state.mainFilter);
+  const toggleSearchBox = () => {
+    console.log('here I am');
+    const searchinput = document.getElementById('search-input');
+    if (searchinput.classList.contains('hide')) {
+      searchinput.classList.remove('hide');
+      searchinput.classList.add('show');
+    } else {
+      searchinput.classList.remove('show');
+      searchinput.classList.add('hide');
+    }
+  }
 
   return (
     <>
       <div>
-        <div className={style.searchContainer + ' hide'} >
+        <div className={style.searchContainer + ' hide'} id="search-input" >
           <input type="text" value={input} list="keysearch" onChange={handleInputSearch} />
           <datalist id="keysearch">
             {
@@ -95,7 +106,7 @@ const RenderDashBoard = ({
           state={state}
           changeCurrencyFilter={changeCurrencyFilter}
         />
-        <SearchIcon className={style.searchIcon}></SearchIcon>
+        <SearchIcon className={style.searchIcon} onClick={toggleSearchBox}></SearchIcon>
 
 
         <Link className={style.routerLink} key={0}

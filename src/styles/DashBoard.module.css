@@ -9,9 +9,9 @@
 
 .searchContainer {
     position: absolute;
-    top: 51%;
-    left: 40%;
-    width: 50%;
+    top: 45%;
+    left: 37%;
+    width: 53%;
     z-index: 1;
 }
 .searchContainer input {
