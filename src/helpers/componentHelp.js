@@ -14,51 +14,43 @@ const getInputHints = (inputValue, objectList) => {
   return keysearch.slice(0, (keysearch.length >= 5 ? 4 : keysearch.length));
 };
 
-const getDate = (date) => {
-  return date.slice(8, 10)
-    + '/'
-    + date.slice(5, 7)
-    + '/'
-    + date.slice(0, 4)
-}
+const getDate = date => `${date.slice(8, 10)
+}/${
+  date.slice(5, 7)
+}/${
+  date.slice(0, 4)}`;
 
-const textToBigCurrency = (numberText) => {
+const textToBigCurrency = numberText => (Math.abs(numberText) >= 1.0e+9
 
-  return Math.abs(numberText) >= 1.0e+9
+  ? `${(Math.abs(numberText) / 1.0e+9).toFixed(2)} B`
+// Six Zeroes for Millions
+  : Math.abs(numberText) >= 1.0e+6
 
-    ? (Math.abs(numberText) / 1.0e+9).toFixed(2) + " B"
-    // Six Zeroes for Millions 
-    : Math.abs(numberText) >= 1.0e+6
+    ? `${(Math.abs(numberText) / 1.0e+6).toFixed(2)} M`
 
-      ? (Math.abs(numberText) / 1.0e+6).toFixed(2) + " M"
+  // Three Zeroes for Thousands
+    : Math.abs(numberText) >= 1.0e+3
 
-      // Three Zeroes for Thousands
-      : Math.abs(numberText) >= 1.0e+3
+      ? `${(Math.abs(numberText) / 1.0e+3).toFixed(2)} K`
 
-        ? (Math.abs(numberText) / 1.0e+3).toFixed(2) + " K"
-
-        : (Math.abs(numberText)).toFixed(2);
-
-}
+      : (Math.abs(numberText)).toFixed(2));
 
 const apiToKey = (api, array) => {
-  let result = array.filter(option => {
+  const result = array.filter(option => {
     if (option.sort === api) {
-      return true
+      return true;
     }
-  })
-  if (result.length > 0) { return result[0].key }
-}
+  });
+  if (result.length > 0) { return result[0].key; }
+};
 
-const isEven = (value) => {
-  if (value % 2 == 0)
-    return true;
-  else
-    return false;
-}
+const isEven = value => {
+  if (value % 2 == 0) return true;
+  return false;
+};
 
 export {
   getInputHints, getDate,
   textToBigCurrency,
-  apiToKey, isEven
+  apiToKey, isEven,
 };

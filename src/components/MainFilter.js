@@ -1,12 +1,11 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import style from '../styles/MainFilter.module.css'
-import mainFilterCat from '../config/appConfig'
+import style from '../styles/MainFilter.module.css';
+import mainFilterCat from '../config/appConfig';
 
 const MainFilter = ({
   changeMainFilter,
 }) => {
-
   const handleChange = e => {
     console.log(`filter selector is : ${e.target.value}`);
     changeMainFilter(e.target.value);

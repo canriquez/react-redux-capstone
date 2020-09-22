@@ -1,26 +1,27 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import style from '../styles/DashAsset.module.css'
-import { textToBigCurrency, isEven } from '../helpers/componentHelp'
-
+import style from '../styles/DashAsset.module.css';
+import { textToBigCurrency } from '../helpers/componentHelp';
 
 const DashAsset = ({
   asset,
   boxId,
-  currency
+  currency,
 }) => (
 
-    <li key={asset.id}
+    <li
+      key={asset.id}
       className={style.dashAsset
-        + (isEven(boxId) ? ' ' + style.evenBox : ' ' + style.oddBox)}>
-      <div className={style.topBox + ' flexCenter'}>
+        + ((boxId === 1 || boxId == 4) ? ` ${style.evenBox}` : ` ${style.oddBox}`)}
+    >
+      <div className={`${style.topBox} flexCenter`}>
         <img src={asset.image} alt={asset.name} />
       </div>
-      <div className={style.downBox + ' flexColEnd'}>
+      <div className={`${style.downBox} flexColEnd`}>
         <h1>{asset.id}</h1>
         <div className={style.marketCap}>
-          <h2>{textToBigCurrency(asset.market_cap) + ' '}</h2>
-          <h2>{'  ' + currency}</h2>
+          <h2>{`${textToBigCurrency(asset.market_cap)} `}</h2>
+          <h2>{`  ${currency}`}</h2>
         </div>
         <h2>{asset.symbol}</h2>
       </div>

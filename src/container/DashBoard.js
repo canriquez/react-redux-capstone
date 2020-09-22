@@ -1,17 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
+import { Link, Route } from 'react-router-dom';
 import DashAsset from '../components/DashAsset';
 import MainAsset from '../components/MainAsset';
 import MainFilter from '../components/MainFilter';
 import CurrencyFilter from '../components/CurrencyFilter';
 import Paginator from '../components/Paginator';
 import { getInputHints, apiToKey } from '../helpers/componentHelp';
-import { Link, Route } from 'react-router-dom'
-import style from '../styles/DashBoard.module.css'
-import { ReactComponent as SearchIcon } from '../assets/icons/search.svg'
-import mainFilterCat from '../config/appConfig'
-
+import style from '../styles/DashBoard.module.css';
+import { ReactComponent as SearchIcon } from '../assets/icons/search.svg';
+import mainFilterCat from '../config/appConfig';
 
 import {
   nextPage, prevPage, updatePage,
@@ -84,12 +83,12 @@ const RenderDashBoard = ({
       searchinput.classList.remove('show');
       searchinput.classList.add('hide');
     }
-  }
+  };
 
   return (
     <>
       <div>
-        <div className={style.searchContainer + ' hide'} id="search-input" >
+        <div className={`${style.searchContainer} hide`} id="search-input">
           <input type="text" value={input} list="keysearch" onChange={handleInputSearch} />
           <datalist id="keysearch">
             {
@@ -106,10 +105,11 @@ const RenderDashBoard = ({
           state={state}
           changeCurrencyFilter={changeCurrencyFilter}
         />
-        <SearchIcon className={style.searchIcon} onClick={toggleSearchBox}></SearchIcon>
+        <SearchIcon className={style.searchIcon} onClick={toggleSearchBox} />
 
-
-        <Link className={style.routerLink} key={0}
+        <Link
+          className={style.routerLink}
+          key={0}
           to={`/asset/${sortedAssetList[0].id}`}
         >
           <MainAsset
@@ -118,7 +118,10 @@ const RenderDashBoard = ({
           />
         </Link>
         <div className={style.dashGap}>
-          <p>stats by {apiToKey(state.mainFilter, mainFilterCat)}</p>
+          <p>
+            stats by
+            {apiToKey(state.mainFilter, mainFilterCat)}
+          </p>
           <Paginator page={state.page} handlePaginator={handlePaginator} />
         </div>
         <ul className={style.dashAssets}>
@@ -128,7 +131,8 @@ const RenderDashBoard = ({
                 ? (
                   <React.Fragment key={asset.id}>
 
-                    <Link className={style.routerLink}
+                    <Link
+                      className={style.routerLink}
                       to={`/asset/${asset.id}`}
                     >
                       <DashAsset

@@ -1,23 +1,22 @@
 .currencyFilter {
-    position: absolute;
-    top: 45%;
-    left: 80%;
-    transform: translateX(-50%);
+  position: absolute;
+  top: 45%;
+  left: 80%;
+  transform: translateX(-50%);
 }
 
 .currencyFilter select {
-    background: var(--french-blue);
-    border: none;
-    height: 40px;
-    width: 50px;
-    height: 1rem;
-    font-family: Lato, sans-serif;
-    font-size: 0.6rem;
-    font-weight: 300;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.2;
-    letter-spacing: normal;
-    text-align-last: center;
-    color: var(--white);
+  background: var(--french-blue);
+  border: none;
+  width: 50px;
+  height: 1rem;
+  font-family: Lato, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align-last: center;
+  color: var(--white);
 }
