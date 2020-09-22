@@ -1,6 +1,5 @@
 .dashAsset {
     height: 30vh;
-    width: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

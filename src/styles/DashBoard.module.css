@@ -22,6 +22,7 @@
 
 .routerLink {
     text-decoration: none;
+    width: 50%;
 }
 
 /*  Dash gap styling */

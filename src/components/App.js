@@ -4,7 +4,6 @@ import { PropTypes } from 'prop-types';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import DashBoard from '../container/DashBoard';
 import { updateApiRenderList } from '../actions/index';
-import AssetDetails from '../components/AssetDetails'
 import AssetDetailsSafe from '../container/AssetDetailsSafe'
 import styles from '../styles/App.module.css'
 

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import DataDetail from '../components/DataDetail'
 import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom';
+import style from '../styles/AssetDetailsSafe.module.css'
+import { textToBigCurrency } from '../helpers/componentHelp'
 
 
 const AssetDetailsSafe = ({
@@ -33,18 +35,20 @@ const AssetDetailsSafe = ({
                 }}>
                     <p>BACK</p>
                 </Link>
-
-                <div className="header-details">
-                    <p>{currencyFilter}</p>
+                <div className={style.mainAsset}>
+                    <div className={style.leftBox + ' flexCenter'}>
+                        <img src={asset.image} alt={asset.name} />
+                    </div>
+                    <div className={style.rightBox + ' flexCol'}>
+                        <h1>{asset.id}</h1>
+                        <div className={style.marketCap}>
+                            <h2>{textToBigCurrency(asset.current_price) + ' '}</h2>
+                            <span>{currencyFilter}</span>
+                        </div>
+                    </div>
                 </div>
-
-                <div className="head-info">
-                    <i><img src={asset.image} alt={asset.name} /></i>
-                    <h1>{asset.id}</h1>
-                    <h3>{asset.curent_price}</h3>
-                </div>
-                <div className="asset-divider">
-                    <p>|--- Top Down Market Cap Assets ---|</p>
+                <div className={style.dashGap}>
+                    <p>Crypto currency details | ticker: {asset.symbol}</p>
                 </div>
                 <ul>{
                     showData.map((data, id) => {
