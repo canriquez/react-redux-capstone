@@ -51,8 +51,8 @@ class App extends React.Component {
     console.log(this.match);
     return (
       <Router>
-        <div className={styles.appcontainer}>
-          <h1>Crypto Catalog App</h1>
+        <div className={styles.appContainer}>
+          <h1 className={styles.brand}>CryptoLog</h1>
           <Switch>
             <Route exact path='/' component={DashBoard} />
             {/*          <Route exact path='/asset' component={AssetDetails} /> */}

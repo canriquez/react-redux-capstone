@@ -1,0 +1,23 @@
+.mainFilter {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mainFilter select {
+    background: var(--french-blue);
+    border: none;
+    height: 40px;
+    width: 105px;
+    height: 1rem;
+    font-family: Lato, sans-serif;
+    font-size: 0.6rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align-last: center;
+    color: var(--white);
+}

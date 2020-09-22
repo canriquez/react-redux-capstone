@@ -1,0 +1,25 @@
+.searchIcon {
+    position: absolute;
+    top: 51%;
+    left: 92%;
+    width: 15px;
+    height: 15px;
+    fill: #fff;
+}
+
+.searchContainer {
+    position: absolute;
+    top: 51%;
+    left: 40%;
+    width: 50%;
+    z-index: 1;
+}
+.searchContainer input {
+    width: 100%;
+    background: var(--french-blue);
+    border: solid 1px #fff;
+}
+
+.routerLink {
+    text-decoration: none;
+}

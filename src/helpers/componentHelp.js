@@ -22,4 +22,23 @@ const getDate = (date) => {
     + date.slice(0, 4)
 }
 
-export { getInputHints, getDate };
+const textToBigCurrency = (numberText) => {
+
+  return Math.abs(numberText) >= 1.0e+9
+
+    ? (Math.abs(numberText) / 1.0e+9).toFixed(2) + " B"
+    // Six Zeroes for Millions 
+    : Math.abs(numberText) >= 1.0e+6
+
+      ? (Math.abs(numberText) / 1.0e+6).toFixed(2) + " M"
+
+      // Three Zeroes for Thousands
+      : Math.abs(numberText) >= 1.0e+3
+
+        ? (Math.abs(numberText) / 1.0e+3).toFixed(2) + " K"
+
+        : (Math.abs(numberText)).toFixed(2);
+
+}
+
+export { getInputHints, getDate, textToBigCurrency };

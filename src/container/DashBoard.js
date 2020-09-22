@@ -8,6 +8,9 @@ import CurrencyFilter from '../components/CurrencyFilter';
 import Paginator from '../components/Paginator';
 import { getInputHints } from '../helpers/componentHelp';
 import { Link, Route } from 'react-router-dom'
+import style from '../styles/DashBoard.module.css'
+import { ReactComponent as SearchIcon } from '../assets/icons/search.svg'
+
 
 import {
   nextPage, prevPage, updatePage,
@@ -74,7 +77,7 @@ const RenderDashBoard = ({
   return (
     <>
       <div>
-        <div>
+        <div className={style.searchContainer + ' hide'} >
           <input type="text" value={input} list="keysearch" onChange={handleInputSearch} />
           <datalist id="keysearch">
             {
@@ -91,28 +94,17 @@ const RenderDashBoard = ({
           state={state}
           changeCurrencyFilter={changeCurrencyFilter}
         />
+        <SearchIcon className={style.searchIcon}></SearchIcon>
 
-        <div>
-          <p>
-            Currency:
-            {state.currencyFilter}
-          </p>
-        </div>
 
-        {/*         <Link key={0} to={{
-          asset: sortedAssetList[0],
-          currency: state.currencyFilter,
-          pathname: '/asset'
-        }}> */}
-
-        <Link key={0}
+        <Link className={style.routerLink} key={0}
           to={`/asset/${sortedAssetList[0].id}`}
         >
           <MainAsset
             asset={sortedAssetList[0]}
+            currency={state.currencyFilter}
           />
         </Link>
-
         <div>
           <p>|--- Top Down Market Cap Assets ---|</p>
           <Paginator handlePaginator={handlePaginator} />
