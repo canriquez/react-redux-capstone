@@ -7,8 +7,6 @@ const DataDetail = ({
   data,
   idRow,
 }) => {
-  if (data === null) { console.log('DATA IS NULL'); }
-
   let k2; let
     v1;
 
@@ -23,7 +21,7 @@ const DataDetail = ({
 
   return (
     <div className={style.dataDetailRow
-            + (isEven(idRow) ? ` ${style.evenBox}` : ` ${style.oddBox}`)}
+      + (isEven(idRow) ? ` ${style.evenBox}` : ` ${style.oddBox}`)}
     >
       <div className={style.detailKeys}>
         <p>{keys[0]}</p>
@@ -48,6 +46,7 @@ DataDetail.propTypes = {
     'High 24h': PropTypes.number,
     'Total Volume': PropTypes.number,
   }).isRequired,
+  idRow: PropTypes.number.isRequired,
 };
 
 export default DataDetail;

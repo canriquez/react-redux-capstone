@@ -39,32 +39,23 @@ const updatePage = newPage => (
 
 /*  home page - Filter update */
 
-const filterUpdate = filter => {
-  console.log(`in action creator... filter is now :${filter}`);
-  return ({
-    type: FILTER_UPDATE,
-    filter,
-  });
-};
+const filterUpdate = filter => ({
+  type: FILTER_UPDATE,
+  filter,
+});
 
 /* Home page - currency update */
 
-const currencyUpdate = filter => {
-  console.log(`in action creator ... currency is now :${filter}`);
-  return ({
-    type: CURRENCY_UPDATE,
-    filter,
-  });
-};
+const currencyUpdate = filter => ({
+  type: CURRENCY_UPDATE,
+  filter,
+});
 
 /* Home Page Get Current Currency */
 
-const getCurrenCurrency = () => {
-  console.log('getting redux store current currency...');
-  return ({
-    type: GET_CURRENT_CURRENCY,
-  });
-};
+const getCurrenCurrency = () => ({
+  type: GET_CURRENT_CURRENCY,
+});
 
 /* Actions for Async driven Api Store */
 

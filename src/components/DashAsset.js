@@ -12,7 +12,7 @@ const DashAsset = ({
   <li
     key={asset.id}
     className={style.dashAsset
-        + ((boxId === 1 || boxId == 4) ? ` ${style.evenBox}` : ` ${style.oddBox}`)}
+        + ((boxId === 1 || boxId === 4) ? ` ${style.evenBox}` : ` ${style.oddBox}`)}
   >
     <div className={`${style.topBox} flexCenter`}>
       <img src={asset.image} alt={asset.name} />
@@ -36,6 +36,8 @@ DashAsset.propTypes = {
     image: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
   }).isRequired,
+  boxId: PropTypes.number.isRequired,
+  currency: PropTypes.string.isRequired,
 };
 
 export default DashAsset;

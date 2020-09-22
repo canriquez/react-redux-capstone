@@ -30,6 +30,6 @@ describe('App', () => {
         <Main />
       </Provider>,
     );
-    screen.getByText('Crypto Catalog App');
+    screen.getByText('CryptoLog');
   });
 });

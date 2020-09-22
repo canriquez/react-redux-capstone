@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DashAsset from '../components/DashAsset';
 import MainAsset from '../components/MainAsset';
 import MainFilter from '../components/MainFilter';
@@ -19,7 +19,7 @@ import {
   currencyUpdate,
 } from '../actions/index';
 
-const mapStateToProps = (state, match) => ({
+const mapStateToProps = state => ({
   state,
 });
 
@@ -37,7 +37,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const sortAssetsList = (object, page, property) => {
-  console.log('attempt sorting ..');
   const itemsPerPage = 5;
   const from = (itemsPerPage * page) - itemsPerPage;
   const to = (itemsPerPage * page);
@@ -52,7 +51,6 @@ const RenderDashBoard = ({
   handlePaginator,
   changePage,
 }) => {
-  const keysearch = [];
   const [input, setInput] = React.useState('');
   const [ks, setKs] = React.useState([{ name: '', idpos: null }]);
 
@@ -60,21 +58,16 @@ const RenderDashBoard = ({
     setInput(event.target.value);
     const hits = getInputHints(event.target.value, state.crypto);
     setKs(hits); // update store
-    console.log(event.target.value);
-    console.log(keysearch);
     if (hits.length > 0) {
       // calls method to change page store where the best hit asset is located.
-      console.log(`ready to change to page : ${hits[0].idpage}`);
       changePage(hits[0].idpage);
     } else {
-      console.log('back to page 0');
       changePage(1);
     }
   };
 
   const sortedAssetList = sortAssetsList(state.crypto, state.page, state.mainFilter);
   const toggleSearchBox = () => {
-    console.log('here I am');
     const searchinput = document.getElementById('search-input');
     if (searchinput.classList.contains('hide')) {
       searchinput.classList.remove('hide');

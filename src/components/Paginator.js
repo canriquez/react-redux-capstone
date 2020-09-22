@@ -10,7 +10,14 @@ const Paginator = ({
   page,
 }) => (
   <div className={style.paginator}>
-    <a href="#" className="book-option middle-option" onClick={() => handlePaginator('PREV')}><PagePrev className={style.pageChange} /></a>
+    <a
+      role="button"
+      href="#"
+      className="book-option middle-option"
+      onClick={() => handlePaginator('PREV')}
+    >
+      <PagePrev className={style.pageChange} />
+    </a>
     <p>
       Page
       {page}
@@ -19,12 +26,20 @@ const Paginator = ({
       {' '}
       40
     </p>
-    <a href="#" className="book-option middle-option" onClick={() => handlePaginator('NEXT')}><PageNext className={style.pageChange} /></a>
+    <a
+      role="button"
+      href="#"
+      className="book-option middle-option"
+      onClick={() => handlePaginator('NEXT')}
+    >
+      <PageNext className={style.pageChange} />
+    </a>
   </div>
 );
 
 Paginator.propTypes = {
   handlePaginator: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
 };
 
 export default Paginator;

@@ -7,7 +7,6 @@ const MainFilter = ({
   changeMainFilter,
 }) => {
   const handleChange = e => {
-    console.log(`filter selector is : ${e.target.value}`);
     changeMainFilter(e.target.value);
   };
 

@@ -31,6 +31,7 @@ MainAsset.propTypes = {
     image: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
   }).isRequired,
+  currency: PropTypes.string.isRequired,
 };
 
 export default MainAsset;

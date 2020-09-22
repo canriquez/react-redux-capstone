@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-
+import { PropTypes } from 'prop-types';
 import DataDetail from '../components/DataDetail';
 import style from '../styles/AssetDetailsSafe.module.css';
 import { textToBigCurrency } from '../helpers/componentHelp';
@@ -12,7 +12,7 @@ const AssetDetailsSafe = ({
   currentCryptoList,
   currencyFilter,
 }) => {
-  const asset = currentCryptoList.find(asset => asset.id == match.match.params.id);
+  const asset = currentCryptoList.find(asset => asset.id === match.match.params.id);
   let assetRender;
   if (asset) {
     const showData = [
@@ -54,10 +54,11 @@ const AssetDetailsSafe = ({
         </div>
         <ul>
           {
-                    showData.map((data, id) => (
-                      <DataDetail idRow={id} key={id * 2} data={data} />
-                    ))
-                }
+            showData.map((data, id) => (
+              // eslint-disable-next-line
+              <DataDetail idRow={id} key={id * 2} data={data} />
+            ))
+          }
         </ul>
       </>
     );
@@ -77,5 +78,24 @@ const mapStateToProps = (state, match) => ({
   currencyFilter: state.currencyFilter,
   match,
 });
+
+AssetDetailsSafe.propTypes = {
+  /*   match: PropTypes.string.isRequired,
+    cmatch: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object])).isRequired, */
+  currentCryptoList: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object])).isRequired,
+  currencyFilter: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    currency: PropTypes.string.isRequired,
+    data: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object])).isRequired,
+    staticContext: PropTypes.string,
+    match: PropTypes.shape({
+      isExact: PropTypes.bool,
+      path: PropTypes.string,
+      params: PropTypes.shape({
+        id: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
+};
 
 export default connect(mapStateToProps, null)(AssetDetailsSafe);
