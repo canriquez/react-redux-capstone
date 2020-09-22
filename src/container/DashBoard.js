@@ -7,7 +7,7 @@ import MainFilter from '../components/MainFilter';
 import CurrencyFilter from '../components/CurrencyFilter';
 import Paginator from '../components/Paginator';
 import { getInputHints } from '../helpers/componentHelp';
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 
 import {
   nextPage, prevPage, updatePage,
@@ -16,7 +16,7 @@ import {
   currencyUpdate,
 } from '../actions/index';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, match) => ({
   state,
 });
 
@@ -98,11 +98,16 @@ const RenderDashBoard = ({
             {state.currencyFilter}
           </p>
         </div>
-        <Link key={0} to={{
+
+        {/*         <Link key={0} to={{
           asset: sortedAssetList[0],
           currency: state.currencyFilter,
           pathname: '/asset'
-        }}>
+        }}> */}
+
+        <Link key={0}
+          to={`/asset/${sortedAssetList[0].id}`}
+        >
           <MainAsset
             asset={sortedAssetList[0]}
           />
