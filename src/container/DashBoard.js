@@ -110,7 +110,7 @@ const RenderDashBoard = ({
           <p>stats by {apiToKey(state.mainFilter, mainFilterCat)}</p>
           <Paginator page={state.page} handlePaginator={handlePaginator} />
         </div>
-        <ul>
+        <ul className={style.dashAssets}>
           {
             sortedAssetList.map((asset, id) => (
               id !== 0
@@ -123,14 +123,15 @@ const RenderDashBoard = ({
                     }}><p>Go</p>
                     </Link> */}
 
-                    <Link
+                    <Link className={style.routerLink}
                       to={`/asset/${asset.id}`}
-                    ><p>Go</p>
-
+                    >
+                      <DashAsset
+                        currency={state.currencyFilter}
+                        asset={asset}
+                        boxId={id}
+                      />
                     </Link>
-                    <DashAsset
-                      asset={asset}
-                    />
                   </React.Fragment>
 
                 )

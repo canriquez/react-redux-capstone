@@ -48,3 +48,8 @@
     color: var(--white);
     text-transform: uppercase;
 }
+
+.dashAssets {
+    display: flex;
+    flex-wrap: wrap;
+}

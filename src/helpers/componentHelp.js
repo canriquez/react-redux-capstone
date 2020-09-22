@@ -50,4 +50,15 @@ const apiToKey = (api, array) => {
   if (result.length > 0) { return result[0].key }
 }
 
-export { getInputHints, getDate, textToBigCurrency, apiToKey };
+const isEven = (value) => {
+  if (value % 2 == 0)
+    return true;
+  else
+    return false;
+}
+
+export {
+  getInputHints, getDate,
+  textToBigCurrency,
+  apiToKey, isEven
+};
