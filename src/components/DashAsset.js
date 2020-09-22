@@ -9,24 +9,24 @@ const DashAsset = ({
   currency,
 }) => (
 
-    <li
-      key={asset.id}
-      className={style.dashAsset
+  <li
+    key={asset.id}
+    className={style.dashAsset
         + ((boxId === 1 || boxId == 4) ? ` ${style.evenBox}` : ` ${style.oddBox}`)}
-    >
-      <div className={`${style.topBox} flexCenter`}>
-        <img src={asset.image} alt={asset.name} />
+  >
+    <div className={`${style.topBox} flexCenter`}>
+      <img src={asset.image} alt={asset.name} />
+    </div>
+    <div className={`${style.downBox} flexColEnd`}>
+      <h1>{asset.id}</h1>
+      <div className={style.marketCap}>
+        <h2>{`${textToBigCurrency(asset.market_cap)} `}</h2>
+        <h2>{`  ${currency}`}</h2>
       </div>
-      <div className={`${style.downBox} flexColEnd`}>
-        <h1>{asset.id}</h1>
-        <div className={style.marketCap}>
-          <h2>{`${textToBigCurrency(asset.market_cap)} `}</h2>
-          <h2>{`  ${currency}`}</h2>
-        </div>
-        <h2>{asset.symbol}</h2>
-      </div>
-    </li>
-  );
+      <h2>{asset.symbol}</h2>
+    </div>
+  </li>
+);
 
 DashAsset.propTypes = {
   asset: PropTypes.shape({
