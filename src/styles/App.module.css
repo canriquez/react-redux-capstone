@@ -1,0 +1,26 @@
+.appContainer {
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 320px;
+  width: 100%;
+  max-width: 640px;
+  height: 48px;
+  background-color: var(--french-blue);
+}
+
+.brand {
+  margin-left: 6px;
+  width: 100%;
+  height: 48px;
+  font-family: Lato, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 4rem;
+  letter-spacing: -0.72px;
+  text-align: left;
+  color: var(--white);
+}

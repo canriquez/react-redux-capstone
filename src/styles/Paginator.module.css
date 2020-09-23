@@ -1,0 +1,12 @@
+.paginator {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  justify-content: space-between;
+}
+
+.pageChange {
+  width: 15px;
+  height: 15px;
+  fill: #fff;
+}
