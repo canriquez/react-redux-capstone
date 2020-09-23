@@ -17,7 +17,7 @@ Users will browse through a list of Crypto Assets, Filtered by Market Cap, ATH, 
 - VSCode
 
 
-## Live Demo @Heroku
+## Live Demo @Netlify
 
 [Live Demo Link](https://anriquez-crypto-assets.netlify.app/)
 
