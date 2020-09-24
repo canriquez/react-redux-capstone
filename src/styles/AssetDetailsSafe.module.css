@@ -89,3 +89,13 @@
   height: 25px;
   fill: #fff;
 }
+
+@media screen and (min-width: 768px) {
+  .mainAsset {
+    height: 24vh;
+  }
+
+  .dashGap {
+    height: 2rem;
+  }
+}
