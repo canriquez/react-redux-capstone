@@ -30,6 +30,7 @@
 /*  Dash gap styling */
 
 .dashGap {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -57,6 +58,17 @@
   flex-wrap: wrap;
 }
 
+.myBrand {
+  position: absolute;
+  top: -70%;
+  left: 0;
+  z-index: 2;
+}
+
+.myBrand img {
+  width: 80%;
+}
+
 @media screen and (min-width: 768px) {
   .searchIcon {
     width: 1rem;
@@ -69,5 +81,16 @@
 
   .dashGap {
     height: 2rem;
+  }
+
+  .myBrand {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    z-index: 2;
+  }
+
+  .myBrand img {
+    width: 100%;
   }
 }

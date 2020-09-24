@@ -25,6 +25,13 @@
   color: var(--white);
 }
 
+.myRepo {
+  position: absolute;
+  bottom: -80%;
+  right: 2%;
+  z-index: 2;
+}
+
 @media screen and (min-width: 768px) {
   .appContainer {
     height: 2.5rem;

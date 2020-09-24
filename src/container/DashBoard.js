@@ -99,7 +99,6 @@ const RenderDashBoard = ({
           changeCurrencyFilter={changeCurrencyFilter}
         />
         <SearchIcon className={style.searchIcon} onClick={toggleSearchBox} />
-
         <Link
           className={style.routerLink}
           key={0}
@@ -111,6 +110,9 @@ const RenderDashBoard = ({
           />
         </Link>
         <div className={style.dashGap}>
+          <a className={style.myBrand} href="https://www.carlosanriquez.com">
+            <img src="https://img.shields.io/badge/Developed%20by-Carlos%20Anriquez-red" alt="carlos anriquez" />
+          </a>
           <p>
             stats by
             {apiToKey(state.mainFilter, mainFilterCat)}
