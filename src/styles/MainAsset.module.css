@@ -61,23 +61,6 @@
   width: 90px;
 }
 
-.myBrand {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.myBrand img {
-  width: 90%;
-}
-
-.myRepo {
-  position: absolute;
-  top: 5%;
-  right: 2%;
-  z-index: 2;
-}
-
 @media screen and (min-width: 768px) {
   .mainAsset {
     height: 24vh;

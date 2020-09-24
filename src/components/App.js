@@ -49,6 +49,9 @@ class App extends React.Component {
       <Router>
         <div className={styles.appContainer}>
           <h1 className={styles.brand}>CryptoLog</h1>
+          <a className={styles.myRepo} href="https://github.com/canriquez/react-redux-capstone">
+            <img src="https://img.shields.io/badge/Github-Repo-green" alt="repo" />
+          </a>
           <Switch>
             <Route exact path="/" component={DashBoard} />
             {/*          <Route exact path='/asset' component={AssetDetails} /> */}
