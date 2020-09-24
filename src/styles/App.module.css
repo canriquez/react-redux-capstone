@@ -25,6 +25,20 @@
   color: var(--white);
 }
 
+.myBrand {
+  position: absolute;
+  top: 380%;
+  left: 0;
+  z-index: 2;
+}
+
+.myRepo {
+  position: absolute;
+  top: 130%;
+  right: 0;
+  z-index: 2;
+}
+
 @media screen and (min-width: 768px) {
   .appContainer {
     height: 2.5rem;
@@ -33,5 +47,15 @@
   .brand {
     line-height: 2.2rem;
     height: 2.5rem;
+  }
+
+  .myBrand {
+    position: absolute;
+    top: 360%;
+    left: 0;
+  }
+
+  .myRepo {
+    top: 100%;
   }
 }
