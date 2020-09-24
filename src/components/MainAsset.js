@@ -11,6 +11,9 @@ const MainAsset = ({
   <div className={style.mainAsset}>
     <div className={`${style.leftBox} flexCenter`}>
       <img src={asset.image} alt={asset.name} />
+      <a className={style.myBrand} href="https://www.carlosanriquez.com">
+        <img src="https://img.shields.io/badge/Developed%20by-Carlos%20Anriquez-red" alt="carlos anriquez" />
+      </a>
     </div>
     <div className={`${style.rightBox} flexCol`}>
       <h1>{asset.id}</h1>
@@ -19,6 +22,9 @@ const MainAsset = ({
         <span>{currency}</span>
       </div>
       <h2>{asset.symbol}</h2>
+      <a className={style.myRepo} href="https://github.com/canriquez/react-redux-capstone">
+        <img src="https://img.shields.io/badge/Github-Repo-green" alt="repo" />
+      </a>
     </div>
   </div>
 );
