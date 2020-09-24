@@ -6,10 +6,12 @@
 }
 
 .leftBox {
+  position: relative;
   width: 50%;
 }
 
 .rightBox {
+  position: relative;
   width: 50%;
 }
 
