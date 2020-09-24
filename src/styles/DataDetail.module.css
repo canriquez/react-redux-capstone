@@ -1,0 +1,49 @@
+.dataDetailRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.dataDetailRow p {
+  font-family: Lato, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2rem;
+  letter-spacing: 1px;
+  text-align: left;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.detailKeys {
+  margin: 10px 20px;
+  width: 45%;
+  display: flex;
+}
+
+.detailValue {
+  margin: 2.5vh 20px;
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.evenBox {
+  background-color: #3f63a6;
+}
+
+.oddBox {
+  background-color: var(--french-blue);
+}
+
+@media screen and (min-width: 768px) {
+  .dataDetailRow {
+    padding-top: 0.8vh;
+    padding-bottom: 0.8vh;
+  }
+}
