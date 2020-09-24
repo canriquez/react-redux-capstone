@@ -20,3 +20,9 @@
   text-align-last: center;
   color: var(--white);
 }
+
+@media screen and (min-width: 768px) {
+  .mainFilter select {
+    width: 6rem;
+  }
+}

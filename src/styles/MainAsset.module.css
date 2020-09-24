@@ -19,7 +19,7 @@
   font-weight: 700;
   font-stretch: normal;
   font-style: normal;
-  line-height: 2.5rem;
+  line-height: 2rem;
   letter-spacing: 1px;
   text-align: left;
   color: var(--white);
@@ -33,9 +33,10 @@
 }
 
 .marketCap span {
+  font-family: Lato, sans-serif;
   margin-left: 10px;
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: 500;
+  font-size: 1rem;
   letter-spacing: 1px;
   color: var(--white);
   text-transform: uppercase;
@@ -44,10 +45,10 @@
 .rightBox h2 {
   font-family: Lato, sans-serif;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.5rem;
+  line-height: 1.2rem;
   letter-spacing: 1px;
   text-align: left;
   color: var(--white);
@@ -56,4 +57,10 @@
 
 .leftBox img {
   width: 90px;
+}
+
+@media screen and (min-width: 768px) {
+  .mainAsset {
+    height: 24vh;
+  }
 }
